@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>29d14e26-7cc8-426e-84a0-6b571c255017</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>CustomModels</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ActivityVM.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\EventVM.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\UserVM.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\VoteVM.cs" />
+  </ItemGroup>
+</Project>

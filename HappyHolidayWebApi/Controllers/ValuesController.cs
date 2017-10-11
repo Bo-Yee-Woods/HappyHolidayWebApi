@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HappyHolidayWebApi.Controllers
 {
+    
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
@@ -17,7 +18,7 @@ namespace HappyHolidayWebApi.Controllers
         }
 
         // GET api/values/5
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name = "Get")]
         public string Get(int id)
         {
             return "value";
@@ -25,8 +26,14 @@ namespace HappyHolidayWebApi.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody]string value)
+        public IActionResult Post([FromBody]MyValue myValue)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            return CreatedAtRoute("Get", "1");
         }
 
         // PUT api/values/5
@@ -41,4 +48,12 @@ namespace HappyHolidayWebApi.Controllers
         {
         }
     }
+
+    public class MyValue
+    {
+        public int value;
+        public string format;
+        public DateTime ptime;
+    }
+
 }
